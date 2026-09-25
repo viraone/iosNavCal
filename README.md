@@ -34,7 +34,7 @@ NavCal/
 ├── ViewModels/ScheduleViewModel.swift
 ├── Views/                           ScheduleView, EventCardView, EventEditorPresenter (EKEventEditViewController),
 │                                    WeatherHeaderView, NavigationButton
-└── Resources/                       Info.plist, entitlements, assets
+└── Resources/                       Info.plist, entitlements, assets (app icon drawn by tools/make_icon.swift)
 ```
 
 ## How it works
