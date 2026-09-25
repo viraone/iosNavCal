@@ -196,6 +196,17 @@ final class ScheduleViewModel {
 
     func navigate(to event: CalendarEvent, with app: NavigationApp) {
         guard let destination = event.destination else { return }
+        navigate(to: destination, with: app)
+    }
+
+    /// The app the Home button opens.
+    static let homeApp = NavigationApp.waze
+
+    func navigateHome() {
+        navigate(to: .home, with: Self.homeApp)
+    }
+
+    private func navigate(to destination: Destination, with app: NavigationApp) {
         Task {
             if await !router.navigate(to: destination, with: app) {
                 navigationError = "Couldn't open \(app.accessibilityName)."

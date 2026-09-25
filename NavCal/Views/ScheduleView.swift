@@ -20,6 +20,16 @@ struct ScheduleView: View {
                 .background { PageBackground() }
                 .navigationTitle(viewModel.selectedDay.formatted(.dateTime.weekday(.wide).month(.abbreviated).day()))
                 .toolbar {
+                    if case .granted = viewModel.accessState {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button {
+                                viewModel.navigateHome()
+                            } label: {
+                                Image(systemName: "house.fill")
+                            }
+                            .accessibilityLabel("Navigate Home")
+                        }
+                    }
                     if viewModel.dayOffset != 0 {
                         ToolbarItem(placement: .topBarLeading) {
                             Button("Today") {

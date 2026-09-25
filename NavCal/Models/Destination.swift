@@ -17,6 +17,9 @@ struct Destination: Hashable, Sendable {
         }
     }
 
+    /// The Home button's destination.
+    static let home = Destination(query: "807 E Roy St, Seattle, WA 98102")
+
     init(query: String, coordinate: Coordinate? = nil) {
         self.query = query
         self.coordinate = coordinate
