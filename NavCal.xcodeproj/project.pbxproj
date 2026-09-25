@@ -1,0 +1,636 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05EA56C82A7211A81F68EAE3 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DF09CAE41EF097BE5F51 /* ScheduleView.swift */; };
+		090D3C6C4CD6616CAEB0407F /* EventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B33C082BA87EDD2934FC22 /* EventProvider.swift */; };
+		1B5494F5C66550BEE7A43404 /* EventCreationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AFB2598C216E5241EB059C /* EventCreationTests.swift */; };
+		3C4F1515ADCA5BF34E3558D5 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72014E11CE64291C650F055D /* CalendarEvent.swift */; };
+		4399F53419E4D103DBE97D9C /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA01181C26557821A68448D /* WeatherTests.swift */; };
+		56BEB91F8E9FAE92BCA1515A /* NavigationRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D408B01F1A903F54C3CB5C /* NavigationRouterTests.swift */; };
+		56C6905AE4E291CC65811D02 /* LocationParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814A9CB2946E4E460CF345E9 /* LocationParser.swift */; };
+		628157082D90F9C9743C4C0C /* WeatherReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496D039C9D6F7DA240BA862F /* WeatherReport.swift */; };
+		6879BBECD7F48E5B99355841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A732CA7C7EDDDB89B3F61D /* Assets.xcassets */; };
+		99AFBD128655C01F74AD6931 /* NavCalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCACFB098F2A7C51075B86 /* NavCalApp.swift */; };
+		A67ECFFDEC9E995EC9A8C15E /* OpenMeteoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C41674A812DA973D1E581 /* OpenMeteoProvider.swift */; };
+		ABF2245C001635A35C5DE4FF /* EventCreationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB6855995E5D97705A616CB /* EventCreationUITests.swift */; };
+		B84F2B028F840952F2945817 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9351836F55C47A7FF16F8991 /* NavigationRouter.swift */; };
+		C3FAD72E677BCD7B4B21BF95 /* NavigationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5ECAD13C3D50CF21D9785 /* NavigationApp.swift */; };
+		C931E57A939053F114C71A98 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3190064C530B40C188979B /* ScheduleViewModel.swift */; };
+		CE3D5FCDBE49F46B89C4955E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AB9345A716D3DEB2D9B078 /* LocationService.swift */; };
+		D7CBB78A48DC1AC016F30F63 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D9CEE13253BECB78B9E2F /* NavigationButton.swift */; };
+		DDB6B940869D314B300D2567 /* WeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF11399DA2CB29DFF3222B15 /* WeatherProvider.swift */; };
+		E0F6AA2A97FA8DBD7B9470BE /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284625B12305944EA51DBE1C /* WeatherHeaderView.swift */; };
+		E41E7DD270E023EE74CEB92C /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C1CB3452355B11C8F53389 /* EventCardView.swift */; };
+		EECED171C604C502CBF4AF35 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E4D013EA64FC1813CD2CFB /* Destination.swift */; };
+		FEBF0E7E2183E90562439B0F /* EventEditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EA7E09CA990F0B3B083626 /* EventEditorPresenter.swift */; };
+		FF510A3A7B20EA637D1ECF47 /* LocationParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696C26F48EF6E1772743974 /* LocationParserTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		62AAB70FA3E4B6BFAA13F5A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E703F8F85DDB73F196094338 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E0912AF6CEE6B915B62AD8D;
+			remoteInfo = NavCal;
+		};
+		84727B357761B7D9A4B84A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E703F8F85DDB73F196094338 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8E0912AF6CEE6B915B62AD8D;
+			remoteInfo = NavCal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03F259AE821172C2E95681A8 /* NavCalTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NavCalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA01181C26557821A68448D /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
+		284625B12305944EA51DBE1C /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
+		2DB6855995E5D97705A616CB /* EventCreationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreationUITests.swift; sourceTree = "<group>"; };
+		3319E6CFB07B5BB78F503FBD /* NavCal.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = NavCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		34AB9345A716D3DEB2D9B078 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3C507E894EB6848FF957AF45 /* NavCalUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NavCalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E0FC641B8525F8066E0DB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3E9C41674A812DA973D1E581 /* OpenMeteoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteoProvider.swift; sourceTree = "<group>"; };
+		402754FCF05F73D9835FB93D /* NavCal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NavCal.entitlements; sourceTree = "<group>"; };
+		4732DF09CAE41EF097BE5F51 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		47E4D013EA64FC1813CD2CFB /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		496D039C9D6F7DA240BA862F /* WeatherReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherReport.swift; sourceTree = "<group>"; };
+		72014E11CE64291C650F055D /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		76A732CA7C7EDDDB89B3F61D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		814A9CB2946E4E460CF345E9 /* LocationParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationParser.swift; sourceTree = "<group>"; };
+		8EC5ECAD13C3D50CF21D9785 /* NavigationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationApp.swift; sourceTree = "<group>"; };
+		9351836F55C47A7FF16F8991 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		B0C1CB3452355B11C8F53389 /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
+		B0CCACFB098F2A7C51075B86 /* NavCalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavCalApp.swift; sourceTree = "<group>"; };
+		C2D408B01F1A903F54C3CB5C /* NavigationRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouterTests.swift; sourceTree = "<group>"; };
+		C7EA7E09CA990F0B3B083626 /* EventEditorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEditorPresenter.swift; sourceTree = "<group>"; };
+		C8B33C082BA87EDD2934FC22 /* EventProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProvider.swift; sourceTree = "<group>"; };
+		DF11399DA2CB29DFF3222B15 /* WeatherProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherProvider.swift; sourceTree = "<group>"; };
+		E696C26F48EF6E1772743974 /* LocationParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationParserTests.swift; sourceTree = "<group>"; };
+		E6AFB2598C216E5241EB059C /* EventCreationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCreationTests.swift; sourceTree = "<group>"; };
+		ED3190064C530B40C188979B /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		F55D9CEE13253BECB78B9E2F /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0213371E98E7C1F2A2FF3873 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C8B33C082BA87EDD2934FC22 /* EventProvider.swift */,
+				814A9CB2946E4E460CF345E9 /* LocationParser.swift */,
+				34AB9345A716D3DEB2D9B078 /* LocationService.swift */,
+				9351836F55C47A7FF16F8991 /* NavigationRouter.swift */,
+				3E9C41674A812DA973D1E581 /* OpenMeteoProvider.swift */,
+				DF11399DA2CB29DFF3222B15 /* WeatherProvider.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		07F64098BD3A5101BB79A41A = {
+			isa = PBXGroup;
+			children = (
+				99F7BCFAFE74DED452557C37 /* NavCal */,
+				8BE5E820AEB685A383D6B2C5 /* NavCalTests */,
+				AC0BA20A96CDC3EEC5CD6732 /* NavCalUITests */,
+				5F42344CF6A4B6F482B25033 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14757E4990B6869B644628B6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				ED3190064C530B40C188979B /* ScheduleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5F42344CF6A4B6F482B25033 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3319E6CFB07B5BB78F503FBD /* NavCal.app */,
+				03F259AE821172C2E95681A8 /* NavCalTests.xctest */,
+				3C507E894EB6848FF957AF45 /* NavCalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7027D5FDEAA209D486B3CB8B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0C1CB3452355B11C8F53389 /* EventCardView.swift */,
+				C7EA7E09CA990F0B3B083626 /* EventEditorPresenter.swift */,
+				F55D9CEE13253BECB78B9E2F /* NavigationButton.swift */,
+				4732DF09CAE41EF097BE5F51 /* ScheduleView.swift */,
+				284625B12305944EA51DBE1C /* WeatherHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7CBC6850616934063C1C06AD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B0CCACFB098F2A7C51075B86 /* NavCalApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8BE5E820AEB685A383D6B2C5 /* NavCalTests */ = {
+			isa = PBXGroup;
+			children = (
+				E6AFB2598C216E5241EB059C /* EventCreationTests.swift */,
+				E696C26F48EF6E1772743974 /* LocationParserTests.swift */,
+				C2D408B01F1A903F54C3CB5C /* NavigationRouterTests.swift */,
+				1DA01181C26557821A68448D /* WeatherTests.swift */,
+			);
+			path = NavCalTests;
+			sourceTree = "<group>";
+		};
+		99F7BCFAFE74DED452557C37 /* NavCal */ = {
+			isa = PBXGroup;
+			children = (
+				7CBC6850616934063C1C06AD /* App */,
+				AB84FADE96EBEC8E8854706B /* Models */,
+				9ABEBBE154165A02B006C417 /* Resources */,
+				0213371E98E7C1F2A2FF3873 /* Services */,
+				14757E4990B6869B644628B6 /* ViewModels */,
+				7027D5FDEAA209D486B3CB8B /* Views */,
+			);
+			path = NavCal;
+			sourceTree = "<group>";
+		};
+		9ABEBBE154165A02B006C417 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				76A732CA7C7EDDDB89B3F61D /* Assets.xcassets */,
+				3E0FC641B8525F8066E0DB9A /* Info.plist */,
+				402754FCF05F73D9835FB93D /* NavCal.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB84FADE96EBEC8E8854706B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				72014E11CE64291C650F055D /* CalendarEvent.swift */,
+				47E4D013EA64FC1813CD2CFB /* Destination.swift */,
+				8EC5ECAD13C3D50CF21D9785 /* NavigationApp.swift */,
+				496D039C9D6F7DA240BA862F /* WeatherReport.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC0BA20A96CDC3EEC5CD6732 /* NavCalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2DB6855995E5D97705A616CB /* EventCreationUITests.swift */,
+			);
+			path = NavCalUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62FA2FF9C58D5E2F06930111 /* NavCalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F380E74E1D13A6FD116F1CE9 /* Build configuration list for PBXNativeTarget "NavCalTests" */;
+			buildPhases = (
+				08C2D1DB608A3E9E59991F1A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F7F4B3F997DC8489FF34A011 /* PBXTargetDependency */,
+			);
+			name = NavCalTests;
+			packageProductDependencies = (
+			);
+			productName = NavCalTests;
+			productReference = 03F259AE821172C2E95681A8 /* NavCalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8E0912AF6CEE6B915B62AD8D /* NavCal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB534C05A979A38C65EAC27E /* Build configuration list for PBXNativeTarget "NavCal" */;
+			buildPhases = (
+				E303AACEE9BAB146CDB806F0 /* Sources */,
+				46201FAB80193BB91EA8C3D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NavCal;
+			packageProductDependencies = (
+			);
+			productName = NavCal;
+			productReference = 3319E6CFB07B5BB78F503FBD /* NavCal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C75DE67634FF1D7646DD5811 /* NavCalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAA58881336D778369682614 /* Build configuration list for PBXNativeTarget "NavCalUITests" */;
+			buildPhases = (
+				45AE58EAFB5E4FB73A56DDDE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				253BD7BE2294EDE4A05BD2AE /* PBXTargetDependency */,
+			);
+			name = NavCalUITests;
+			packageProductDependencies = (
+			);
+			productName = NavCalUITests;
+			productReference = 3C507E894EB6848FF957AF45 /* NavCalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E703F8F85DDB73F196094338 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					8E0912AF6CEE6B915B62AD8D = {
+						DevelopmentTeam = V9MXHWMVTM;
+						ProvisioningStyle = Automatic;
+					};
+					C75DE67634FF1D7646DD5811 = {
+						TestTargetID = 8E0912AF6CEE6B915B62AD8D;
+					};
+				};
+			};
+			buildConfigurationList = 58E539956BFCCA7A0F577630 /* Build configuration list for PBXProject "NavCal" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 07F64098BD3A5101BB79A41A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5F42344CF6A4B6F482B25033 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E0912AF6CEE6B915B62AD8D /* NavCal */,
+				62FA2FF9C58D5E2F06930111 /* NavCalTests */,
+				C75DE67634FF1D7646DD5811 /* NavCalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46201FAB80193BB91EA8C3D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6879BBECD7F48E5B99355841 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08C2D1DB608A3E9E59991F1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B5494F5C66550BEE7A43404 /* EventCreationTests.swift in Sources */,
+				FF510A3A7B20EA637D1ECF47 /* LocationParserTests.swift in Sources */,
+				56BEB91F8E9FAE92BCA1515A /* NavigationRouterTests.swift in Sources */,
+				4399F53419E4D103DBE97D9C /* WeatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45AE58EAFB5E4FB73A56DDDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABF2245C001635A35C5DE4FF /* EventCreationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E303AACEE9BAB146CDB806F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C4F1515ADCA5BF34E3558D5 /* CalendarEvent.swift in Sources */,
+				EECED171C604C502CBF4AF35 /* Destination.swift in Sources */,
+				E41E7DD270E023EE74CEB92C /* EventCardView.swift in Sources */,
+				FEBF0E7E2183E90562439B0F /* EventEditorPresenter.swift in Sources */,
+				090D3C6C4CD6616CAEB0407F /* EventProvider.swift in Sources */,
+				56C6905AE4E291CC65811D02 /* LocationParser.swift in Sources */,
+				CE3D5FCDBE49F46B89C4955E /* LocationService.swift in Sources */,
+				99AFBD128655C01F74AD6931 /* NavCalApp.swift in Sources */,
+				C3FAD72E677BCD7B4B21BF95 /* NavigationApp.swift in Sources */,
+				D7CBB78A48DC1AC016F30F63 /* NavigationButton.swift in Sources */,
+				B84F2B028F840952F2945817 /* NavigationRouter.swift in Sources */,
+				A67ECFFDEC9E995EC9A8C15E /* OpenMeteoProvider.swift in Sources */,
+				05EA56C82A7211A81F68EAE3 /* ScheduleView.swift in Sources */,
+				C931E57A939053F114C71A98 /* ScheduleViewModel.swift in Sources */,
+				E0F6AA2A97FA8DBD7B9470BE /* WeatherHeaderView.swift in Sources */,
+				DDB6B940869D314B300D2567 /* WeatherProvider.swift in Sources */,
+				628157082D90F9C9743C4C0C /* WeatherReport.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		253BD7BE2294EDE4A05BD2AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E0912AF6CEE6B915B62AD8D /* NavCal */;
+			targetProxy = 84727B357761B7D9A4B84A09 /* PBXContainerItemProxy */;
+		};
+		F7F4B3F997DC8489FF34A011 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8E0912AF6CEE6B915B62AD8D /* NavCal */;
+			targetProxy = 62AAB70FA3E4B6BFAA13F5A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07F7D69D5962EBAC84B7067E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		18DFE3EF9197241841AB5139 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		84E01F7230B741F2B34F1C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCalUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NavCal;
+			};
+			name = Release;
+		};
+		C65E5A7EF344ACDF5FE049BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCalUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NavCal;
+			};
+			name = Debug;
+		};
+		C7BD0258E226A29A7811F119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9MXHWMVTM;
+				INFOPLIST_FILE = NavCal/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCal;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D24DB74DCEE9DDF539611E9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9MXHWMVTM;
+				INFOPLIST_FILE = NavCal/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCal;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DA6E57DE2E64E0F5571FE801 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCalTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavCal.app/NavCal";
+			};
+			name = Debug;
+		};
+		FBC21C36DF9667B7A3D89F41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.navcal.NavCalTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavCal.app/NavCal";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58E539956BFCCA7A0F577630 /* Build configuration list for PBXProject "NavCal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18DFE3EF9197241841AB5139 /* Debug */,
+				07F7D69D5962EBAC84B7067E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CB534C05A979A38C65EAC27E /* Build configuration list for PBXNativeTarget "NavCal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7BD0258E226A29A7811F119 /* Debug */,
+				D24DB74DCEE9DDF539611E9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EAA58881336D778369682614 /* Build configuration list for PBXNativeTarget "NavCalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C65E5A7EF344ACDF5FE049BE /* Debug */,
+				84E01F7230B741F2B34F1C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F380E74E1D13A6FD116F1CE9 /* Build configuration list for PBXNativeTarget "NavCalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA6E57DE2E64E0F5571FE801 /* Debug */,
+				FBC21C36DF9667B7A3D89F41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E703F8F85DDB73F196094338 /* Project object */;
+}
