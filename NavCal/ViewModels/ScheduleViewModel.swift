@@ -177,8 +177,19 @@ final class ScheduleViewModel {
         events.hasAccess ? events.eventStore : nil
     }
 
-    /// Called when the event editor is dismissed. Reloads right away so a new event
-    /// appears without waiting for the `EKEventStoreChanged` notification.
+    /// Whether tapping `event` should open the editor.
+    func canEdit(_ event: CalendarEvent) -> Bool {
+        eventStoreForEditing != nil && event.isEditable
+    }
+
+    /// The EventKit event to hand the editor for `event`, or nil if it's gone or read-only.
+    func occurrenceForEditing(_ event: CalendarEvent) -> EKEvent? {
+        guard canEdit(event) else { return nil }
+        return eventStoreForEditing?.occurrence(of: event)
+    }
+
+    /// Called when the event editor is dismissed. Reloads right away so a new, changed or
+    /// deleted event shows up without waiting for the `EKEventStoreChanged` notification.
     func eventEditorDidFinish(_ action: EKEventEditViewAction) {
         if action != .canceled { reloadEvents() }
     }

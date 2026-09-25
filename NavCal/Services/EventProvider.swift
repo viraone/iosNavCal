@@ -94,7 +94,9 @@ final class CalendarService: EventProviding {
             isAllDay: event.isAllDay,
             destination: destination,
             locationSource: source,
-            calendarColor: event.calendar.map { Color(cgColor: $0.cgColor) }
+            calendarColor: event.calendar.map { Color(cgColor: $0.cgColor) },
+            eventIdentifier: event.eventIdentifier,
+            isEditable: event.calendar?.allowsContentModifications ?? false
         )
     }
 }
@@ -116,6 +118,17 @@ extension EKEventStore {
     /// Event calendars the app can add events to (excludes holidays, birthdays, subscriptions).
     var writableEventCalendars: [EKCalendar] {
         calendars(for: .event).filter(\.allowsContentModifications)
+    }
+
+    /// The EventKit occurrence behind `event`, for editing. Recurring occurrences share an
+    /// identifier (and `event(withIdentifier:)` returns the first one), so match the start date too.
+    func occurrence(of event: CalendarEvent) -> EKEvent? {
+        guard let identifier = event.eventIdentifier else { return nil }
+        let end = max(event.endDate, event.startDate.addingTimeInterval(1))
+        let predicate = predicateForEvents(withStart: event.startDate, end: end, calendars: nil)
+        return events(matching: predicate).first {
+            $0.eventIdentifier == identifier && $0.startDate == event.startDate
+        }
     }
 
     /// Where new events go: the user's default calendar, else the first writable one.

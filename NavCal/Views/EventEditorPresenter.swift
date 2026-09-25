@@ -2,7 +2,7 @@ import EventKit
 import EventKitUI
 import UIKit
 
-/// Presents the system `EKEventEditViewController` for creating a new event.
+/// Presents the system `EKEventEditViewController` for creating or editing an event.
 ///
 /// The controller is presented with UIKit from the front-most view controller, the
 /// presentation EventKitUI is designed for. It saves the event itself; `onComplete` reports
@@ -20,16 +20,21 @@ final class EventEditorPresenter: NSObject, EKEventEditViewDelegate, UIAdaptiveP
 
     /// Shows the editor for a new event on `day`. Ignored if one is already showing.
     func present(store: EKEventStore, day: Date, onComplete: @escaping (EKEventEditViewAction) -> Void) {
+        present(store: store, event: Self.draftEvent(in: store, on: day), onComplete: onComplete)
+    }
+
+    /// Shows the editor for an existing `event`, which can also be deleted from there.
+    /// Ignored if one is already showing.
+    func present(store: EKEventStore, event: EKEvent, onComplete: @escaping (EKEventEditViewAction) -> Void) {
         guard !isPresenting else { return }
         guard let presenter = Self.frontMostViewController() else {
             onComplete(.canceled)
             return
         }
 
-        let draft = Self.draftEvent(in: store, on: day)
         let controller = EKEventEditViewController()
         controller.eventStore = store
-        controller.event = draft
+        controller.event = event
         controller.editViewDelegate = self
 
         self.controller = controller

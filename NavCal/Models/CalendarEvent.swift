@@ -18,6 +18,10 @@ struct CalendarEvent: Identifiable, Hashable, Sendable {
     let destination: Destination?
     let locationSource: LocationSource?
     let calendarColor: Color?
+    /// EventKit identifier of the underlying event; nil for sample data.
+    var eventIdentifier: String? = nil
+    /// Whether the event's calendar accepts changes (false for holidays, birthdays, subscriptions).
+    var isEditable = false
 
     func status(at now: Date) -> Status {
         if endDate <= now { return .finished }

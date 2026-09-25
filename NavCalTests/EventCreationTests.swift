@@ -43,6 +43,27 @@ struct EventCreationTests {
         #expect(google.native?.absoluteString == "comgooglemaps://?daddr=Safeway%20555&directionsmode=driving")
     }
 
+    @Test func mappedEventKeepsIdentifierForEditing() {
+        let event = makeEvent(title: "Merch visit", location: nil)
+        let mapped = CalendarService.makeEvent(event)
+        #expect(mapped.eventIdentifier == event.eventIdentifier)
+        // Unsaved test events have no calendar, so there's nothing to save edits to.
+        #expect(!mapped.isEditable)
+    }
+
+    @Test func sampleEventsAreNotEditable() {
+        let viewModel = makeViewModel(CountingProvider())
+        #expect(CalendarEvent.samples.allSatisfy { !viewModel.canEdit($0) })
+        #expect(viewModel.occurrenceForEditing(CalendarEvent.samples[0]) == nil)
+    }
+
+    @Test func deletingReloadsSchedule() {
+        let provider = CountingProvider()
+        let viewModel = makeViewModel(provider)
+        viewModel.eventEditorDidFinish(.deleted)
+        #expect(Set(provider.fetchedDays) == [viewModel.day(at: -1), viewModel.today, viewModel.day(at: 1)])
+    }
+
     @Test func savingReloadsScheduleButCancelingDoesNot() {
         let provider = CountingProvider()
         let viewModel = makeViewModel(provider)

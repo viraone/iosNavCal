@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// The app's single screen: one swipeable page per day, each listing that day's event cards.
-/// Swipe left for the next day, right for the previous one.
+/// Swipe left for the next day, right for the previous one. Tap a card to edit its event.
 struct ScheduleView: View {
     /// How far the pager reaches either side of today.
     static let dayRange = -365...365
@@ -17,7 +17,7 @@ struct ScheduleView: View {
     var body: some View {
         NavigationStack {
             content
-                .background(Color(.systemGroupedBackground))
+                .background { PageBackground() }
                 .navigationTitle(viewModel.selectedDay.formatted(.dateTime.weekday(.wide).month(.abbreviated).day()))
                 .toolbar {
                     if viewModel.dayOffset != 0 {
@@ -107,6 +107,18 @@ struct ScheduleView: View {
         }
     }
 
+    private func edit(_ event: CalendarEvent) {
+        guard let store = viewModel.eventStoreForEditing else { return }
+        guard let occurrence = viewModel.occurrenceForEditing(event) else {
+            // Deleted or moved elsewhere since the page loaded.
+            viewModel.reloadEvents()
+            return
+        }
+        eventEditor.present(store: store, event: occurrence) { action in
+            viewModel.eventEditorDidFinish(action)
+        }
+    }
+
     private func createNavCalCalendarThenEvent() {
         guard let store = viewModel.eventStoreForEditing else { return }
         do {
@@ -155,7 +167,8 @@ struct ScheduleView: View {
                             viewModel: viewModel,
                             day: viewModel.day(at: offset),
                             isToday: offset == 0,
-                            now: context.date
+                            now: context.date,
+                            onEdit: edit
                         )
                         .containerRelativeFrame(.horizontal)
                     }
@@ -175,6 +188,7 @@ private struct DayPageView: View {
     let day: Date
     let isToday: Bool
     let now: Date
+    let onEdit: (CalendarEvent) -> Void
 
     var body: some View {
         ScrollView {
@@ -206,10 +220,25 @@ private struct DayPageView: View {
                 let nextID = isToday
                     ? events.first { !$0.isAllDay && $0.status(at: now) == .upcoming }?.id
                     : nil
-                LazyVStack(spacing: 12) {
-                    ForEach(events) { event in
-                        EventCardView(event: event, now: now, isNext: event.id == nextID) { app in
-                            viewModel.navigate(to: event, with: app)
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("Schedule").font(.title3.bold())
+                        Spacer()
+                        Text(events.count == 1 ? "1 event" : "\(events.count) events")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .padding(.top, 8)
+
+                    LazyVStack(spacing: 0) {
+                        ForEach(events) { event in
+                            EventRowView(
+                                event: event, now: now, isNext: event.id == nextID,
+                                isLast: event.id == events.last?.id,
+                                onEdit: viewModel.canEdit(event) ? { onEdit(event) } : nil
+                            ) { app in
+                                viewModel.navigate(to: event, with: app)
+                            }
                         }
                     }
                 }
@@ -217,6 +246,23 @@ private struct DayPageView: View {
         } else {
             ProgressView().frame(maxWidth: .infinity, minHeight: 240)
         }
+    }
+}
+
+/// Grouped background with a soft glow of the app icon's blues behind the top of the page.
+private struct PageBackground: View {
+    var body: some View {
+        ZStack(alignment: .top) {
+            Color(.systemGroupedBackground)
+            LinearGradient(
+                colors: [Color(red: 0.12, green: 0.23, blue: 0.54).opacity(0.45),
+                         Color(red: 0.05, green: 0.65, blue: 0.91).opacity(0.12),
+                         .clear],
+                startPoint: .top, endPoint: .bottom
+            )
+            .frame(height: 420)
+        }
+        .ignoresSafeArea()
     }
 }
 

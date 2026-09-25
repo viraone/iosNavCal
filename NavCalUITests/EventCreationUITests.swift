@@ -35,8 +35,7 @@ final class EventCreationUITests: XCTestCase {
         save.tap()
 
         // 2. The sheet closes and the new event is listed without pulling to refresh.
-        let card = app.staticTexts[title]
-        XCTAssertTrue(card.waitForExistence(timeout: 5), "New event did not appear after saving")
+        XCTAssertTrue(scrollTo(app.staticTexts[title], in: app), "New event did not appear after saving")
 
         // 3. The location was parsed from the title, so navigation is enabled.
         XCTAssertTrue(app.staticTexts[store].exists, "Expected parsed destination \(store)")
@@ -45,18 +44,92 @@ final class EventCreationUITests: XCTestCase {
         let newCard = app.descendants(matching: .any).matching(identifier: "event-card")
             .containing(.staticText, identifier: title).firstMatch
         let waze = newCard.buttons["Navigate with Waze"]
-        var scrolls = 0
-        while !waze.isHittable && scrolls < 8 {
-            app.swipeUp()
-            scrolls += 1
-        }
-        XCTAssertTrue(waze.isHittable, "New event's Waze button never came on screen")
+        XCTAssertTrue(scrollTo(waze, in: app), "New event's Waze button never came on screen")
         XCTAssertTrue(waze.isEnabled)
 
         // 4. Waze isn't installed in the simulator, so the web fallback opens in Safari.
         waze.tap()
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
         XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 10), "Waze link did not open")
+    }
+
+    /// Create an event, rename it from its card's edit button, then delete it from the editor.
+    @MainActor
+    func testEditThenDeleteEvent() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let original = "Edit me \(Int.random(in: 100...999))"
+        let renamed = "\(original) renamed"
+
+        let plus = app.buttons["New Event"]
+        XCTAssertTrue(plus.waitForExistence(timeout: 10), "+ button missing — is calendar access granted?")
+        plus.tap()
+        let titleField = app.textFields["Title"]
+        XCTAssertTrue(titleField.waitForExistence(timeout: 5), "Event editor did not appear")
+        titleField.tap()
+        titleField.typeText(original)
+        saveButton(in: app).tap()
+        XCTAssertTrue(scrollTo(app.staticTexts[original], in: app), "New event did not appear")
+
+        // 1. The card's pencil opens the editor on the existing event.
+        let card = app.descendants(matching: .any).matching(identifier: "event-card")
+            .containing(.staticText, identifier: original).firstMatch
+        let edit = card.buttons["Edit Event"]
+        XCTAssertTrue(scrollTo(edit, in: app), "Edit button never came on screen")
+        edit.tap()
+
+        let editTitle = app.textFields["Title"]
+        XCTAssertTrue(editTitle.waitForExistence(timeout: 5), "Editor did not open for existing event")
+        XCTAssertEqual(editTitle.value as? String, original)
+        editTitle.tap()
+        editTitle.typeText(" renamed")
+        attachScreenshot(named: "Editing")
+        saveButton(in: app).tap()
+
+        // 2. The card shows the new title right away.
+        XCTAssertTrue(scrollTo(app.staticTexts[renamed], in: app), "Edited title did not appear")
+        XCTAssertFalse(app.staticTexts[original].exists)
+
+        // 3. Delete it from the editor so runs don't pile up in the simulator calendar.
+        let renamedCard = app.descendants(matching: .any).matching(identifier: "event-card")
+            .containing(.staticText, identifier: renamed).firstMatch
+        let editAgain = renamedCard.buttons["Edit Event"]
+        XCTAssertTrue(scrollTo(editAgain, in: app))
+        editAgain.tap()
+        XCTAssertTrue(app.textFields["Title"].waitForExistence(timeout: 5))
+        // The editor's delete control is a table cell at the bottom, not a button.
+        let delete = app.cells["delete-event-cell"]
+        XCTAssertTrue(scrollTo(delete, in: app), "Delete Event row never came on screen")
+        // A tap while the list is still decelerating only stops the scroll.
+        sleep(1)
+        delete.tap()
+        let confirm = app.sheets.buttons["delete-alert-button"].firstMatch
+        XCTAssertTrue(confirm.waitForExistence(timeout: 5), "Delete confirmation did not appear")
+        confirm.tap()
+        XCTAssertTrue(app.staticTexts[renamed].waitForNonExistence(timeout: 5), "Deleted event still listed")
+    }
+
+    /// Swipes up until `element` is on screen. Cards sit in a lazy stack, so ones far down a busy
+    /// day (e.g. left over from earlier runs) don't exist in the hierarchy until scrolled to.
+    @MainActor
+    private func scrollTo(_ element: XCUIElement, in app: XCUIApplication, maxSwipes: Int = 12) -> Bool {
+        if element.waitForExistence(timeout: 3), element.isHittable { return true }
+        for _ in 0..<maxSwipes {
+            app.swipeUp()
+            if element.exists, element.isHittable { return true }
+        }
+        return false
+    }
+
+    /// Save button: id "add-button" up to iOS 26; no id and label "Done" (or "Add") on iOS 27.
+    @MainActor
+    private func saveButton(in app: XCUIApplication) -> XCUIElement {
+        let save = app.buttons.matching(
+            NSPredicate(format: "identifier == 'add-button' OR label == 'Done' OR label == 'Add'")
+        ).firstMatch
+        XCTAssertTrue(save.waitForExistence(timeout: 5), "Save button not found in editor")
+        return save
     }
 
     @MainActor
